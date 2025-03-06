@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 15px;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="register.html">Register</a>
+    </nav>
+
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="loginName" placeholder="Enter your name"><br><br>
+        <input type="password" id="loginPassword" placeholder="Enter your password"><br><br>
+        <button id="loginButton">Login</button>
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+    </div>
+
+    <script>
+        document.getElementById("loginButton").addEventListener("click", function () {
+            const name = document.getElementById("loginName").value.trim();
+            const password = document.getElementById("loginPassword").value.trim();
+
+            if (name && password) {
+                const storedPassword = localStorage.getItem(name);
+
+                if (storedPassword && storedPassword === password) {
+                    localStorage.setItem("loggedInUser", name);
+
+                    // Check if user has activities set up
+                    const activities = localStorage.getItem(name + "_activities");
+                    if (!activities) {
+                        window.location.href = "setup.html"; // Go to setup page if activities not found
+                    } else {
+                        window.location.href = "index.html"; // Proceed to main page
+                    }
+                } else {
+                    alert("Invalid credentials. Please try again or register.");
+                }
+            } else {
+                alert("Please enter a name and password.");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

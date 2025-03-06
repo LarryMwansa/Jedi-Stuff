@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Interactivity with State</title>
+</head>
+<style>
+    body {
+        background-color: #797979;
+
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        padding: 8px;
+        margin-bottom: 7px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+    }
+
+    li:hover {
+        background-color: #f1f1f1;
+    }
+
+    h1 {
+        color: #4CAF50;
+    }
+
+    div {
+        margin: 20px;
+    }
+</style>
+
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+
+        function Header({ title }) {
+            return <h1>{title}</h1>;
+        }
+            
+            function HomePage() {
+                const names = ['Kiss Phiri', 'Buati Banda', 'Foloko Bwalya'];
+
+                   const [likes, setLikes] = React.useState(0);
+
+
+                function handleClick() {
+                setLikes(likes + 1);
+                }
+                
+                return (
+                    <div>
+                    <Header title="Adding Interactivity with State" />
+                    <ul>
+                        {names.map((name) => (
+                        <li key={name}>{name}</li>
+                        ))}
+                    </ul>
+                      <button onClick={handleClick}>Like({likes})</button>
+                    </div>
+                );
+            }
+            const domNode = document.getElementById('app');
+        const root = ReactDOM.createRoot(domNode);
+            root.render(<HomePage />);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area & Perimeter Calculator</title>
+</head>
+<body>
+    <div>
+        <h2>Area & Perimeter Calculator</h2>
+        <form action="area_perimeter.php" method="post">
+            <label for="length">Length:</label>
+            <input type="text" name="length" id="length" required><br><br>
+            <label for="width">Width:</label>
+            <input type="text" name="width" id="width" required><br><br>
+            <input type="submit" value="Calculate">
+    </div>
+    <script>
+        function calculateAreaPerimeter() {
+            let length = document.getElementById('length').value;
+            let width = document.getElementById('width').value;
+            let area = length * width;
+            let perimeter = 2 * (length + width);
+            alert(`Area: ${area}\nPerimeter: ${perimeter}`);
+        }
+    </script>
+</body>
+</html>

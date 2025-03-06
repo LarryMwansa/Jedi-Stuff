@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="TimeOfDay">Good Morning</h1>
+        <p class="UserName">Larry Mwansa</p>
+        <p class="activityHeader">Your Activities Of The Day</p>
+        <ul class="ActivityList">
+            <li>Breakfast</li>
+            <li>Meeting</li>
+            <li>Work</li>
+            <li>Break</li>
+            <li>Work</li>
+            <li>Lunch</li>
+            <li>Work</li>
+            <li>Break</li>
+            <li>Work</li>
+            <li>Home</li>
+        </ul>
+    </div>
+    <script>
+        const app = document.getElementById('app');
+        const h1 = app.querySelector('h1');
+        const p = app.querySelector('p');
+        const p2 = app.querySelector('p:nth-child(3)');
+        const UserName = app.querySelector('.UserName');
+        const ActivityList = app.querySelector('.ActivityList');
+
+        h1.style.color = 'red';
+        p.style.color = 'blue';
+        p2.style.color = 'green';
+        UserName.style.color = 'purple';
+        UserName.style.fontSize = '2em';
+        ActivityList.style.color = 'orange';
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const timeOfDayElement = document.querySelector(".TimeOfDay");
+
+        const currentHour = new Date().getHours();
+        let greeting = "Good Morning"; // Default
+
+        if (currentHour >= 12 && currentHour < 18) {
+            greeting = "Good Afternoon";
+        } else if (currentHour >= 18) {
+            greeting = "Good Evening";
+        }
+
+        timeOfDayElement.textContent = greeting;
+    });
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 15px;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .logout-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <button id="logoutButton" class="logout-btn">Logout</button>
+    </nav>
+
+    <div class="container">
+        <h1 class="TimeOfDay">Good Morning</h1>
+        <p class="UserName">Loading...</p>
+
+        <h3>Your Activities</h3>
+        <ul class="ActivityList"></ul>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const storedUser = localStorage.getItem("loggedInUser");
+            if (!storedUser) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            // Check if user has activities set up, if not, redirect to setup page
+            const activities = localStorage.getItem(storedUser + "_activities");
+            if (!activities) {
+                window.location.href = "setup.html";
+                return;
+            }
+
+            const timeOfDayElement = document.querySelector(".TimeOfDay");
+            const currentHour = new Date().getHours();
+            let greeting = "Good Morning";
+
+            if (currentHour >= 12 && currentHour < 18) {
+                greeting = "Good Afternoon";
+            } else if (currentHour >= 18) {
+                greeting = "Good Evening";
+            }
+
+            timeOfDayElement.textContent = greeting;
+
+            document.querySelector(".UserName").textContent = storedUser;
+
+            // Load activities
+            const activityList = document.querySelector(".ActivityList");
+            activities.split(",").forEach(activity => {
+                const li = document.createElement("li");
+                li.textContent = activity.trim();
+                activityList.appendChild(li);
+            });
+
+            document.getElementById("logoutButton").addEventListener("click", function () {
+                localStorage.removeItem("loggedInUser");
+                window.location.href = "login.html";
+            });
+        });
+    </script>
+
+</body>
+
+</html>

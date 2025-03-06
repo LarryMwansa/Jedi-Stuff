@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Stuff</title>
+</head>
+<body>
+    <div class="App">
+        <h2 class="Heading">Change Me For The Better</h2>
+        <div class="bgMyColor">
+            <p class="MyText">This is a paragraph</p>
+            <button class="MyButton">Click Me</button>
+        </div>
+        <div class="AddMeOnClick">
+
+        </div>
+    </div>
+    <script>
+        const app = document.querySelector('.App');
+        const heading = app.querySelector('.Heading');
+        const bgMyColor = app.querySelector('.bgMyColor');
+        const myText = bgMyColor.querySelector('.MyText');
+        const myButton = bgMyColor.querySelector('.MyButton');
+        const addMeOnClick = app.querySelector('.AddMeOnClick');
+
+        heading.style.color = 'red';
+        myText.style.color = 'blue';
+        myButton.style.color = 'green';
+        myButton.style.backgroundColor = 'yellow';
+        bgMyColor.style.backgroundColor = 'green';
+
+
+        myButton.addEventListener('click', function () {
+            const newHeading = document.createElement('h1');
+            newHeading.textContent = 'This is a new heading';
+            const newElement = document.createElement('p');
+            newElement.textContent = 'This is a new paragraph';
+            addMeOnClick.appendChild(newHeading);
+            addMeOnClick.appendChild(newElement);
+        });
+    </script>
+</body>
+</html>

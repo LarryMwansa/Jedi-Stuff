@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing Props</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+        // An object property with dot notation
+        function DotNotation(props) {
+            return <h1>{props.title}</h1>;
+        } 
+        
+        
+                 // A template literal
+        function TemplateLiteral({ TemplateLiteral }) {
+            return <h1>{`${TemplateLiteral}`}</h1>;
+            }
+        
+
+        function Header({ title }) {
+            // Using a ternary operator to check if the title prop is passed
+           return <h1>{title ? title : 'Default title'}</h1>;
+        }
+ 
+        function HomePage() {
+            return (
+                <div>
+                    <DotNotation title= "Props Passed By Dot Notation" />
+                    <TemplateLiteral TemplateLiteral = "Props Passed By Template Literal" />
+                    <Header title = "I'm The Prop Passed by Ternary Operator" />
+                </div>
+            );
+        }
+ 
+        const root = ReactDOM.createRoot(app);
+        root.render(<HomePage />);
+    </script>
+</body>
+
+</html>
