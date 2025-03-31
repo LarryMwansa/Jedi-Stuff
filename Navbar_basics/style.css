@@ -1,0 +1,19 @@
+/* 
+- Applied CSS reset or CSS normalization 
+- Create a consistent styling foundation
+*/
+*,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navigation-header {
+    background-color: rgb(73, 51, 153);
+    padding: 0 15px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
