@@ -129,4 +129,20 @@ The hamburger and the navigation items will be reselected and styled to fit prop
     .hamburger #closeHam {
         display: none;
     }
+
+        .navigation-items {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            top: 58px;
+            background-color: rgb(73, 51, 153);
+            width: 100%;
+            height: calc(100vh - 58px);
+            padding-top: 60px;
+            gap: 10vh;
+        }
 }
+
+
