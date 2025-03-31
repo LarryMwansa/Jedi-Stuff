@@ -103,3 +103,30 @@ then make them show up on smaller screens using media queries. But we are going 
     font-weight: 800;
     color: white;
 }
+
+/* 
+Create a different style for hamburger,
+and the navigation items on smaller screens using CSS media query Here,
+we are going to have a different style from tablet devices with screen sizes from 768px below, this would also cover for mobile screens.
+
+Media query is commonly used for creating responsive designs that adapt to smaller screen sizes,
+such as tablets or smaller desktop screens. 
+
+In the above code snippet,
+the styles within the media query will only be applied when the screen width is 768 pixels or smaller. 
+
+Elements are reselected within the curly braces and are styled to fit properly to the current screen size as written in the media query which is 768px in this case. 
+
+The hamburger and the navigation items will be reselected and styled to fit properly for the 768px screens
+*/
+
+@media screen and (max-width:768px) {
+    .hamburger {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .hamburger #closeHam {
+        display: none;
+    }
+}
