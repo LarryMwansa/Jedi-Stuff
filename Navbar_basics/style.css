@@ -17,3 +17,89 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
+/* 
+Since we are working with only one <nav>element,
+we do not need to give it a class name. Select the nav element using its element name. If the project you are working requires a uniform width on all parent containers,
+then you are going to set the max-width of the nav to that required max-width of your project. For the sake of this project,
+we are going to set the max-width to 1200px. To make the container stretch to the full max-width,
+apply 100% width. This way,
+the container stretches up to the max-width but won't exceed the maximum width making the container responsive in that process.
+*/
+
+nav {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* 
+Style the logo
+Select the anchor element within the logo container. Set its text color to ghostwhite. Remove any underlining or decoration from the text within the <a>element. Set the font-weight to bold (700 is the numeric value for bold font-weight). Set the font-size to 26 pixels.
+*/
+
+.logo-container>a {
+    color: ghostwhite;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+/* 
+Style the navigation items 
+Select the navigation items using its class name. Within the navigation items,we have three navigation links,
+make them align horizontally using the flex layout.
+*/
+
+.navigation-items {
+    display: flex;
+    gap: 40px;
+}
+
+
+/* 
+Style the navigation links 
+Select the links within the navigation items using the direction child selector. Set the text color to "ghostwhite",
+remove text decoration,
+apply a font weight of 500,
+and set the font size to 16 pixels. Also add a transition for smooth hover effect.
+*/
+
+.navigation-items>a {
+    color: ghostwhite;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: .4s ease-in-out;
+}
+
+/* 
+Add hover effect to navigation links 
+Simply change the color of the navigation to white,
+or based on the requirement of your project.
+*/
+
+.navigation-items>a:hover {
+    color: lightskyblue;
+}
+
+/* 
+Style the hamburger 
+The hamburger has two child elements within it which includes the openHam and the closeHam icons. Here we used HTML entities for the icons,
+you can import icons from icon libraries such as font awesome,
+google fonts or icon library. On desktop and laptop screens,
+we definitely do not want the hamburger icons to show,
+so we hide them by default,
+then make them show up on smaller screens using media queries. But we are going to add some other default styling to the hamburger.
+*/
+
+.hamburger {
+    display: none;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+}
